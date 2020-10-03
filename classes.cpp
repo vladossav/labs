@@ -33,7 +33,11 @@ int ArrayWork::getMaxSize() {
 }
 
 int* ArrayWork::getPtr() {
-	return ptr;
+	int* ptrCpy = new int[maxSize];
+	for (int i = 0; i < maxSize; i++) {
+		ptrCpy[i] = ptr[i];
+	}
+	return ptrCpy;
 }
 
 char* ArrayWork::toString() {
