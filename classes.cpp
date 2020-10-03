@@ -36,7 +36,7 @@ int* ArrayWork::getPtr() {
 	return ptr;
 }
 
-void ArrayWork::toString() {
+char* ArrayWork::toString() {
 	char* string = new char[maxSize*10];
 	for (int i = 0; i < maxSize; i++) {
 		int k = 0;
@@ -55,8 +55,7 @@ void ArrayWork::toString() {
 		else
 		strcat(string, buffer);
 	}
-	std::cout << std::endl<<string;
-	delete[]string;
+	return string;
 }
 
 int ArrayWork::buffer(int *temp) {
