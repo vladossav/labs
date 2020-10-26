@@ -22,6 +22,14 @@ ArrayWork::ArrayWork(int maxSize0, int* ptr0) {
 	}
 }
 
+ArrayWork::ArrayWork(const ArrayWork& other) {
+	this->maxSize = other.maxSize;
+	this->ptr = new int[other.maxSize];
+	for (int i = 0; i < other.maxSize; i++) {
+		this->ptr[i] = other.ptr[i];
+	}
+}
+
 int ArrayWork::nowCount = 0;
 
 ArrayWork::~ArrayWork() {
@@ -43,6 +51,7 @@ int* ArrayWork::getPtr() {
 char* ArrayWork::toString() {
 	char* string = new char[maxSize*10];
 	for (int i = 0; i < maxSize; i++) {
+
 		int k = 0;
 		int number = ptr[i];
 		if (ptr[i] < 0) {
@@ -54,11 +63,17 @@ char* ArrayWork::toString() {
 			number = number / 10;
 		}
 		char* buffer = new char[k];
+	
 		sprintf(buffer, "%d ", ptr[i]);
-		if (i == 0) strcpy(string, buffer);
-		else
-		strcat(string, buffer);
+		if (i == 0) {
+			strcpy(string, buffer);
+		}
+		else {
+			strcat(string, buffer);
+		}
+		
 	}
+	
 	return string;
 }
 

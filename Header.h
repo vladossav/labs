@@ -1,24 +1,33 @@
 #ifndef HEADER_H
 #define HEADER_H
-
 class ArrayWork {
 public:
-	ArrayWork(); //ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г° ГЇГ® ГіГ¬Г®Г«Г·Г Г­ГЁГѕ
-	ArrayWork(int maxSize0, int* ptr0); //ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г° Г± ГЇГ Г°Г Г¬ГҐГІГ°Г Г¬ГЁ
-	~ArrayWork(); //Г¤ГҐГ±ГІГ°ГіГЄГІГ®Г°
-	int getMaxSize(); //ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ Г°Г Г§Г¬ГҐГ°Г  Г¬Г Г±Г±ГЁГўГ 
-	int* getPtr(); //ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ Г¬Г Г±Г±ГЁГўГ 
-	char* toString(); //ГўГ»ГўГ®Г¤ 
-	void add(int num); //int num - ГЅГ«ГҐГ¬ГҐГ­ГІ, ГЄГ®ГІГ®Г°Г»Г© Г¤Г®ГЎГ ГўГ«ГїГҐГ¬
-	void replace(int numPos, int number); //int num - ГЇГ®Г°ГїГ¤ГЄГ®ГўГ»Г© Г­Г®Г¬ГҐГ° ГЅГ«ГҐГ¬ГҐГ­ГІГ  Г§Г Г¬ГҐГ­Г»
-										  //number - Г·ГЁГ±Г«Г® Г¤Г«Гї Г§Г Г¬ГҐГ­Г»
+	ArrayWork(); //конструктор по умолчанию
+	ArrayWork(int maxSize0, int* ptr0); //конструктор с параметрами
+	ArrayWork(const ArrayWork& other); //конструктор копирования
+	~ArrayWork(); //деструктор
+
+	int getMaxSize(); //получение размера массива
+	int* getPtr(); //получение массива
+	char* toString(); //вывод 
+	void add(int num); //int num - элемент, который добавляем
+	void replace(int numPos, int number); //int num - порядковый номер элемента замены
+										  //number - число для замены
 	void sort();
-	void remove(int numPos); //int num - ГЇГ®Г°ГїГ¤ГЄГ®ГўГ»Г© Г­Г®Г¬ГҐГ° ГЅГ«ГҐГ¬ГҐГ­ГІГ  ГіГ¤Г Г«ГҐГ­ГЁГї
-	int search(int num); //ГЇГ®ГЁГ±ГЄ ГЅГ«ГҐГ¬ГҐГ­ГІГ 
+	void remove(int numPos); //int num - порядковый номер элемента удаления
+	int search(int num); //поиск элемента
+
+	//перегрузки опеторов
+	friend ArrayWork operator+(ArrayWork& a, ArrayWork& b); 
+	friend ArrayWork operator-(ArrayWork& a, ArrayWork& b); 
+	int& operator[](int index);
+	ArrayWork& operator--();
+	ArrayWork& operator-(int b); 	
+	ArrayWork& operator=(const ArrayWork& other);
 private:
 	int maxSize;
 	static int nowCount;
 	int* ptr;
-	int buffer(int* temp); //ГЎГіГґГҐГ° Г¤Г«Гї Г¬ГҐГІГ®Г¤Г®Гў add ГЁ toDelete
+	int buffer(int* temp); //буфер для методов add, toDelete, operator-
 };
 #endif // !Header.h
