@@ -71,7 +71,14 @@ bool testOperIndex(ArrayWork mass1) {
 	temp = mass1.getPtr();
 
 	srand((unsigned)time(NULL));
-	int num = 0 + rand() % mass1.getMaxSize();
+	int num = -5 + rand() % (mass1.getMaxSize()+10);
+
+	try {
+		mass1[num];
+	}
+	catch(int ex) {
+		return 1;
+	}
 
 	if (temp[num] == mass1[num]) return 0;
 	else return 1;

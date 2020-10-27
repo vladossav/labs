@@ -36,16 +36,14 @@ ArrayWork operator-(ArrayWork& a, ArrayWork& b) {
 }
 
 int& ArrayWork::operator[](int index) {
-	if (index >= maxSize) {
-		index = index % maxSize;
-	}
 
-	int* ptrCpy = new int[maxSize];
-	for (int i = 0; i < maxSize; i++) {
-		ptrCpy[i] = ptr[i];
-	}
+	if (index < 0 || index >= maxSize)
+		throw index;
+
+	int temp;
+	temp = ptr[index];
 	
-	return ptrCpy[index];
+	return temp;
 }
 
 ArrayWork& ArrayWork::operator--() {
