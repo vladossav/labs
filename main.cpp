@@ -76,7 +76,7 @@ bool testOperIndex(ArrayWork mass1) {
 	try {
 		mass1[num];
 	}
-	catch(int ex) {
+	catch(std:: range_error& ex) {
 		return 1;
 	}
 

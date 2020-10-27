@@ -38,7 +38,7 @@ ArrayWork operator-(ArrayWork& a, ArrayWork& b) {
 int& ArrayWork::operator[](int index) {
 
 	if (index < 0 || index >= maxSize)
-		throw index;
+		throw std::range_error("Exit for limits of array!");
 
 	int temp;
 	temp = ptr[index];
