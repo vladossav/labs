@@ -1,0 +1,28 @@
+#pragma once
+#include "Header.h"
+class StackArray : public ArrayWork {
+public:
+	StackArray() : ArrayWork() {}
+	StackArray(int maxSize0, int* ptr0) : ArrayWork(maxSize0, ptr0) {}
+
+	void push(int num);
+	void pop();
+	int peek();
+	bool isEmpty();
+
+	~StackArray() {}
+};
+
+class QueueArray : public ArrayWork {
+public:
+	QueueArray() : ArrayWork() {}
+	QueueArray(int maxSize0, int* ptr0) : ArrayWork(maxSize0, ptr0) {}
+
+	void push(int num);
+	void pop();
+	int front();
+	int back();
+	bool isEmpty();
+
+	~QueueArray() {}
+};
