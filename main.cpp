@@ -1,5 +1,6 @@
 #include "Header.h"
-#include "HeirHeader.h"
+#include "StackArray.h"
+#include "QueueArray.h"
 #include <iostream>
 #include <ctime>
 using namespace std;
