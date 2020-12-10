@@ -13,11 +13,15 @@ bool testPush(StackArray test) {
 }
 
 bool testPop(StackArray test) {
+	int temp = test.peek();
 	try {
-		test.pop();
+		throw test.pop();
 	}
 	catch (runtime_error) {
 		return 1;
+	}
+	catch (int obj) {
+		if (temp != obj) return 1;
 	}
 	return 0;
 }
@@ -35,11 +39,15 @@ bool testAdd(QueueArray test) {
 }
 
 bool testDel(QueueArray test) {
+	int temp = test.front();
 	try {
-		test.pop();
+		throw test.pop();
 	}
 	catch (runtime_error) {
 		return 1;
+	}
+	catch (int obj) {
+		if (obj != temp) return 1;
 	}
 	return 0;
 }
@@ -58,5 +66,6 @@ int main() {
 	cout << "\nТекущий элемент стека: "<< testLast(test1);
 	cout << "\nДобавление элемента в очередь: " << testAdd(test3);
 	cout << "\nУдаление из очереди: " << testDel(test3);
+
 	return 0;
 }

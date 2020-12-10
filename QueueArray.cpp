@@ -13,12 +13,14 @@ void QueueArray::push(int num) {
 	delete[]temp;
 }
 
-void QueueArray::pop() {
+int QueueArray::pop() {
 	if (isEmpty()) {
 		throw runtime_error("Stack is empty!");
 	}
 	int* temp = new int[maxSize];
 	*temp = buffer(temp);
+
+	int popObj = temp[0];
 
 	maxSize--;
 	ptr = new int[maxSize];
@@ -26,6 +28,7 @@ void QueueArray::pop() {
 		ptr[i] = temp[i + 1];
 	}
 	delete[]temp;
+	return popObj;
 }
 
 int QueueArray::front() {
