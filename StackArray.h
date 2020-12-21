@@ -10,6 +10,7 @@ public:
 	int pop();
 	int peek();
 	bool isEmpty();
+	char* toString();
 
 	~StackArray() {}
 };

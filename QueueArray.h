@@ -11,6 +11,7 @@ public:
 	int front();
 	int back();
 	bool isEmpty();
+	char* toString();
 
 	~QueueArray() {}
 };

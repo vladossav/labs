@@ -11,7 +11,7 @@ public:
 
 	int getMaxSize(); //получение размера массива
 	int* getPtr(); //получение массива
-	char* toString(); //вывод 
+	virtual char* toString(); //вывод 
 	void add(int num); //int num - элемент, который добавляем
 	void replace(int numPos, int number); //int num - порядковый номер элемента замены
 										  //number - число для замены

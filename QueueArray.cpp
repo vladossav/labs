@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "QueueArray.h"
 using namespace std;
 
@@ -42,4 +43,34 @@ int QueueArray::back() {
 bool QueueArray::isEmpty() {
 	if (maxSize == 0) return 1;
 	else return 0;
+}
+
+char* QueueArray::toString() {
+	char* string = new char[maxSize * 10];
+	for (int i = 0; i < maxSize; i++) {
+
+		int k = 0;
+		int number = ptr[i];
+		if (ptr[i] < 0) {
+			k++;
+			number = -ptr[i];
+		}
+		while (number > 0) {
+			k++;
+			number = number / 10;
+		}
+		char* buffer = new char[k];
+
+		sprintf(buffer, "%d ", ptr[i]);
+		if (i == 0) {
+			strcpy(string, "Queue: ");
+			strcat(string, buffer);
+		}
+		else {
+			strcat(string, buffer);
+		}
+
+	}
+
+	return string;
 }
