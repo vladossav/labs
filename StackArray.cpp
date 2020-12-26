@@ -68,6 +68,6 @@ char* StackArray::toString() {
 		}
 
 	}
-
+	throw -2;
 	return string;
 }

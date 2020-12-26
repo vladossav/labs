@@ -69,6 +69,30 @@ bool testSearch() {
 	return 0;
 }
 
+bool testPolymorphism() {
+	int A[] = { 8,-2,77777,4 };
+	ArrayWork obj1;
+	StackArray obj2(4, A);
+	QueueArray obj3;
+	
+	try {
+		obj2.toString();
+	}
+	catch (const int wait) {
+		if (wait == -2) {
+			try {
+				obj3.toString();
+			}
+			catch (const int wait2) {
+				if (wait2 == -3)
+					return 0;
+				else return 1;
+			}
+		}
+		else return 1;
+	}
+}
+
 int main() { 
 	setlocale(LC_ALL, "Russian");
 	
@@ -78,6 +102,7 @@ int main() {
 	cout<< "\ntest empty: " << testEmpty();
 	cout << "\ntest del: " << testDelete();
 	cout << "\ntest search: " << testSearch();
+	cout << "\ntest polymorphism: " << testPolymorphism();
 	cout << endl;
 
 	return 0;

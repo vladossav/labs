@@ -75,7 +75,7 @@ char* ArrayWork::toString() {
 		}
 		
 	}
-	
+	throw -1;
 	return string;
 }
 

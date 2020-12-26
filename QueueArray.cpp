@@ -71,6 +71,6 @@ char* QueueArray::toString() {
 		}
 
 	}
-
+	throw -3;
 	return string;
 }
